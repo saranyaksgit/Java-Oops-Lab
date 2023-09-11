@@ -1,0 +1,83 @@
+import java.util.Scanner;
+
+class Publisher {
+    String publisherName;
+
+    public Publisher(String publisherName) {
+        this.publisherName = publisherName;
+    }
+}
+
+class Book {
+    String bookTitle;
+    Publisher publisher;
+    int yearOfPublication;
+
+    public Book(String bookTitle, Publisher publisher, int yearOfPublication) {
+        this.bookTitle = bookTitle;
+        this.publisher = publisher;
+        this.yearOfPublication = yearOfPublication;
+    }
+}
+
+class Literature extends Book {
+    String genre;
+
+    public Literature(String bookTitle, Publisher publisher, int yearOfPublication, String genre) {
+        super(bookTitle, publisher, yearOfPublication);
+        this.genre = genre;
+    }
+}
+
+class Fiction extends Book {
+    String genre;
+
+    public Fiction(String bookTitle, Publisher publisher, int yearOfPublication, String genre) {
+        super(bookTitle, publisher, yearOfPublication);
+        this.genre = genre;
+    }
+}
+
+public class BookDetails {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Sample data for demonstration
+        Publisher penguin = new Publisher("Penguin Books");
+
+        Literature literature1 = new Literature("To Kill a Mockingbird", penguin, 1960, "Classic");
+        Literature literature2 = new Literature("Pride and Prejudice", penguin, 1813, "Romance");
+
+        Fiction fiction1 = new Fiction("Harry Potter and the Philosopher's Stone", penguin, 1997, "Fantasy");
+        Fiction fiction2 = new Fiction("The Da Vinci Code", penguin, 2003, "Thriller");
+
+        // Sample array of books
+        Book[] books = { literature1, literature2, fiction1, fiction2 };
+
+        // Print the details of books from either category
+        System.out.println("Literature books:");
+        for (Book book : books) {
+            if (book instanceof Literature) {
+                Literature literatureBook = (Literature) book;
+                System.out.println("Title: " + literatureBook.bookTitle);
+                System.out.println("Publisher: " + literatureBook.publisher.publisherName);
+                System.out.println("Year of Publication: " + literatureBook.yearOfPublication);
+                System.out.println("Genre: " + literatureBook.genre);
+                System.out.println();
+            }
+        }
+
+        System.out.println("Fiction books:");
+        for (Book book : books) {
+            if (book instanceof Fiction) {
+                Fiction fictionBook = (Fiction) book;
+                System.out.println("Title: " + fictionBook.bookTitle);
+                System.out.println("Publisher: " + fictionBook.publisher.publisherName);
+                System.out.println("Year of Publication: " + fictionBook.yearOfPublication);
+                System.out.println("Genre: " + fictionBook.genre);
+                System.out.println();
+            }
+        }
+    }
+}
+

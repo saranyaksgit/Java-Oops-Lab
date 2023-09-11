@@ -1,0 +1,48 @@
+import java.util.Scanner;
+
+class Product {
+    int pcode;
+    String pname;
+    double price;
+
+    public Product(int pcode, String pname, double price) {
+        this.pcode = pcode;
+        this.pname = pname;
+        this.price = price;
+    }
+}
+
+public class LowestPriceProduct {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        Product[] products = new Product[3];
+        for (int i = 0; i < 3; i++) {
+            System.out.println("Product " + (i + 1) + ":");
+            System.out.print("Enter product code: ");
+            int pcode = scanner.nextInt();
+            scanner.nextLine(); // Consume the newline character
+            System.out.print("Enter product name: ");
+            String pname = scanner.nextLine();
+            System.out.print("Enter product price: ");
+            double price = scanner.nextDouble();
+
+            products[i] = new Product(pcode, pname, price);
+        }
+
+        // Finding the product with the lowest price
+        Product lowestPriceProduct = products[0];
+        for (int i = 1; i < products.length; i++) {
+            if (products[i].price < lowestPriceProduct.price) {
+                lowestPriceProduct = products[i];
+            }
+        }
+
+        // Displaying the details of the product with the lowest price in the desired format
+        System.out.println("\nProduct with the lowest price:");
+        System.out.println("Product " + lowestPriceProduct.pcode + ":");
+        System.out.println("Name: " + lowestPriceProduct.pname);
+        System.out.println("Price: " + lowestPriceProduct.price);
+    }
+}
+

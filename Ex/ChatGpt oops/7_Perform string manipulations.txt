@@ -1,0 +1,25 @@
+import java.util.Scanner;
+
+public class StringManipulations {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the first string: ");
+        String str1 = scanner.nextLine();
+
+        System.out.print("Enter the second string: ");
+        String str2 = scanner.nextLine();
+
+        // Concatenate the strings
+        String concatenated = str1 + str2;
+        System.out.println("Concatenated string: " + concatenated);
+
+        // Convert to uppercase and lowercase
+        String uppercase = str1.toUpperCase();
+        String lowercase = str2.toLowerCase();
+
+        System.out.println("Uppercase of first string: " + uppercase);
+        System.out.println("Lowercase of second string: " + lowercase);
+    }
+}
+

@@ -1,0 +1,19 @@
+1)	this keyword
+	
+		examplethis.java
+
+2)
+	a)	package
+			(ex1.java, ex2.java, exam2.java)
+
+	b)	Write a Package MCA which has one class Student. 
+		Accept student detail through parameterized constructor. 
+		Write display () method to display details. 
+		Create a main class which will use package and calculate total marks and percentage.
+
+			question2.java, Student.java
+
+3)	Exception Handling(try, catch, finally)
+
+		(exception1.java to exception2.java)
+
