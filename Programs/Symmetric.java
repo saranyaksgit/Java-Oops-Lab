@@ -1,56 +1,54 @@
 import java.util.*;
-public class Symmetric
-{
-        public static void main(String args[])
-        {
-                int i,j,m,n=0;
-                Scanner sc=new Scanner(System.in);
-                System.out.print("Enter order of Matrix :");
-                m=sc.nextInt();
-                int a[][]=new int[10][10];
-                System.out.println("Enter the Matrix :");
-                for(i=0;i<m;i++)
-                {
-                        for(j=0;j<m;j++)
-                        {
-                                a[i][j]=sc.nextInt();
-                        }
+
+public class Symmetric {
+    public static void main(String args[]) {
+        int i, j, rows, cols, n = 0;
+        Scanner sc = new Scanner(System.in);
+        
+        System.out.print("Enter the number of rows for the Matrix: ");
+        rows = sc.nextInt();
+        System.out.print("Enter the number of columns for the Matrix: ");
+        cols = sc.nextInt();
+        
+        if (rows != cols) {
+            System.out.println("Matrix is not symmetric because it's not a square matrix.");
+        } else {
+            int a[][] = new int[rows][cols];
+            
+            System.out.println("Enter the Matrix:");
+            for (i = 0; i < rows; i++) {
+                for (j = 0; j < cols; j++) {
+                    a[i][j] = sc.nextInt();
                 }
-                for(i=0;i<m;i++)
-                {
-                        for(j=0;j<m;j++)
-                        {
-                        if(a[i][j]!=a[j][i])
-                        {
-                                n=1;
-                        }
+            }
+            
+            // Check for symmetry
+            for (i = 0; i < rows; i++) {
+                for (j = 0; j < cols; j++) {
+                    if (a[i][j] != a[j][i]) {
+                        n = 1;
+                        break;
+                    }
                 }
-        }
-        System.out.println("The Matrix is :");
-        for(i=0;i<m;i++)
-        {
-                for(j=0;j<m;j++)
-                {
-                        System.out.print(" "+a[i][j]);
+                if (n == 1) {
+                    break;
                 }
-                System.out.println();
-        }
-        System.out.println("Transpose of Matrix is :");
-        for(i=0;i<m;i++)
-        {
-                for(j=0;j<m;j++)
-                {
-                        System.out.print(" "+a[j][i]);
+            }
+            
+            System.out.println("The Matrix is:");
+            for (i = 0; i < rows; i++) {
+                for (j = 0; j < cols; j++) {
+                    System.out.print(" " + a[i][j]);
                 }
                 System.out.println();
+            }
+            
+            if (n == 0) {
+                System.out.println("Matrix is symmetric.");
+            } else {
+                System.out.println("Matrix is not symmetric.");
+            }
         }
-        if(n==1)
-        {
-                System.out.println("Matrix is not Symmetric");
-        }
-        else
-        {
-                System.out.println("Matrix is Symmetric");
-        }
+    }
 }
-}
+
